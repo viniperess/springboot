@@ -1,11 +1,9 @@
 package br.edu.ifsul.cstsi.tads_curso.api.turma;
 
-import br.edu.ifsul.cstsi.tads_curso.api.aluno.Aluno;
+
 import br.edu.ifsul.cstsi.tads_curso.api.curso.Curso;
 import br.edu.ifsul.cstsi.tads_curso.api.curso.CursoRepository;
 import br.edu.ifsul.cstsi.tads_curso.api.exceptions.ResourceNotFoundException;
-import br.edu.ifsul.cstsi.tads_curso.api.matricula.Matricula;
-import br.edu.ifsul.cstsi.tads_curso.api.matricula.MatriculaRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.web.PageableDefault;
@@ -18,7 +16,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.net.URI;

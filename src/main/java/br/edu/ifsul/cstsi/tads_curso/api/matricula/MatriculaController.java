@@ -2,7 +2,6 @@ package br.edu.ifsul.cstsi.tads_curso.api.matricula;
 
 import br.edu.ifsul.cstsi.tads_curso.api.aluno.Aluno;
 import br.edu.ifsul.cstsi.tads_curso.api.aluno.AlunoRepository;
-import br.edu.ifsul.cstsi.tads_curso.api.curso.Curso;
 import br.edu.ifsul.cstsi.tads_curso.api.exceptions.ResourceNotFoundException;
 import br.edu.ifsul.cstsi.tads_curso.api.turma.Turma;
 import br.edu.ifsul.cstsi.tads_curso.api.turma.TurmaRepository;

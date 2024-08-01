@@ -1,7 +1,6 @@
 package br.edu.ifsul.cstsi.tads_curso.api.user;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

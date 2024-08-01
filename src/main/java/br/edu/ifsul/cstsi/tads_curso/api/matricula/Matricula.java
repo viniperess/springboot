@@ -2,7 +2,6 @@ package br.edu.ifsul.cstsi.tads_curso.api.matricula;
 
 import br.edu.ifsul.cstsi.tads_curso.api.aluno.Aluno;
 import br.edu.ifsul.cstsi.tads_curso.api.turma.Turma;
-import br.edu.ifsul.cstsi.tads_curso.api.turma.TurmaDTOResponse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity(name = "Matricula")

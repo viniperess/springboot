@@ -2,12 +2,12 @@ package br.edu.ifsul.cstsi.tads_curso.api.turma;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
-import org.aspectj.weaver.ast.Not;
+
 
 import java.time.LocalDate;
 
 public record TurmaDTOPut(
-        @NotBlank(message = "O turno não pode ser nulo ou vazio") // Verifica se está vazio e estabelece como obrigatório (não pode ser nulo)
+        @NotBlank(message = "O turno não pode ser nulo ou vazio")
         @Size(min = 2, max = 50, message = "O turno deve ter entre 2 e 50 caracteres")
         String turno,
 

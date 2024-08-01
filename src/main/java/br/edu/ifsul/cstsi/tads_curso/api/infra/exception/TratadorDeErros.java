@@ -8,15 +8,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-/*
-    Indica que essa classe deve ser adicionada ao Contexto do aplicativo como um Bean onde se fará o
-    tratamento das exceções lançadas pelos Controllers, como, @RestController.
- */
-@RestControllerAdvice //leia o comentário acima para entender essa anotação
+
+@RestControllerAdvice
 public class TratadorDeErros extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity trataErro400(ConstraintViolationException ex){ //400 - Bad Request para Erro de Validação da Validation
+    public ResponseEntity trataErro400(ConstraintViolationException ex){
         var erros = ex.getConstraintViolations();
         return ResponseEntity.badRequest().body(erros.stream().map(ErroValidation::new).toList());
     }
@@ -32,7 +29,7 @@ public class TratadorDeErros extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(ValidacaoEmailJaCadastradoException.class)
-    public ResponseEntity trataErro400(ValidacaoEmailJaCadastradoException ex){ //400 - Bad Request para Erro de Validação das Regras de Negócio
+    public ResponseEntity trataErro400(ValidacaoEmailJaCadastradoException ex){
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
@@ -40,7 +37,7 @@ public class TratadorDeErros extends ResponseEntityExceptionHandler {
         String campo,
         String mensagem) {
         public ErroValidation(ConstraintViolation<?> erro){
-            this(erro.getPropertyPath().toString(), erro.getMessage()); //qual campo e qual a mensagem do Validation
+            this(erro.getPropertyPath().toString(), erro.getMessage());
         }
     }
 }

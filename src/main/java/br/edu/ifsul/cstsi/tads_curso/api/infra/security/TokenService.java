@@ -30,7 +30,6 @@ public class TokenService {
                 .withIssuedAt(LocalDateTime.now().toInstant(ZoneOffset.of("-03:00")))
                 .sign(algorithm);
         } catch (JWTCreationException exception){
-            // Invalid Signing configuration / Couldn't convert Claims.
             throw new RuntimeException("Erro ao gerar o token JWT.", exception);
         }
     }
@@ -44,7 +43,6 @@ public class TokenService {
                 .verify(tokenJWT)
                 .getSubject();
         } catch (JWTVerificationException exception){
-            // Invalid signature/claims
             throw new TokenInvalidoException("Token JWT inválido ou expirado.");
         }
     }
