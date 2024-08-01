@@ -25,10 +25,11 @@ public class TokenService {
         try {
             var algorithm = Algorithm.HMAC256(secret);
             return JWT.create()
-                .withIssuer("API Produtos Exemplo de TADS")
-                .withSubject(usuario.getUsername())
-                .withIssuedAt(LocalDateTime.now().toInstant(ZoneOffset.of("-03:00")))
-                .sign(algorithm);
+                    .withIssuer("API Curso de TADS")
+                    .withSubject(usuario.getUsername())
+                    .withIssuedAt(LocalDateTime.now().toInstant(ZoneOffset.of("-03:00")))
+                    .withExpiresAt(dataExpiracao())
+                    .sign(algorithm);
         } catch (JWTCreationException exception){
             throw new RuntimeException("Erro ao gerar o token JWT.", exception);
         }
@@ -38,7 +39,7 @@ public class TokenService {
         try {
             var algorithm = Algorithm.HMAC256(secret);
             return JWT.require(algorithm)
-                .withIssuer("API Produtos Exemplo de TADS")
+                .withIssuer("API Curso de TADS")
                 .build()
                 .verify(tokenJWT)
                 .getSubject();
